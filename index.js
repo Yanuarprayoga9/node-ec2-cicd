@@ -2,16 +2,12 @@ const http = require('http');
 
 const port = 3000;
 
-function handleRequest(req, res) {
+const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Updated \n');
-}
-
-const server = http.createServer(handleRequest);
+  res.end('Updated this file just now\n');
+});
 
 server.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
-
-module.exports = { handleRequest };
